@@ -1,5 +1,4 @@
-
-# TransfomerCPI2.0
+# TransfomerCPI2.0:Sequence-based drug design as a concept in computational drug design
 ## Background
   We only disclose the inference models. TransformerCPI2.0 is based on TransformerCPI whose codes are all released. The details of TransformerCPI2.0 are described in our paper https://doi.org/10.1038/s41467-023-39856-w which is now published on Nature communications. Trained models are available at present.
 ## Abstract of article
@@ -28,3 +27,5 @@ numpy = 1.19.5
 
 scikit-learn = 0.24.1 
 
+## Related Efforts
+TransformerCPI: https://github.com/myzhengSIMM/transformerCPI
