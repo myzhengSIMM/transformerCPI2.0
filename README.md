@@ -6,13 +6,26 @@
   ![image](https://github.com/995884191/png/blob/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-12-04%20191421.jpg?raw=true.png)
   
 ## Setup and dependencies 
-`environment.yaml` is the conda environment of this project.
+Set up the conda environment of this project.
+`conda env create -f environment.yaml`
 
-## Inference
-`predict.py` makes the inference, the input are protein sequence and compound SMILES. `featurizer.py` tokenizes and encodes the protein sequence and compounds. `mutation_analysis.py` conducts drug mutation analysis to predict binding sites. `substitution_analysis.py` conducts substitution analysis.
+## Train
+The data format refers to the file `chembl.zip` in release. 
+The first step for model training is to tokenize and encode the protein sequence and compounds by `python train_featurizer.py`.
+Then, use these feature for model training by `python main_amp.py`.
 
 ## Trained models
 Trained models is now available freely at https://drive.google.com/drive/folders/1X7i1eO-EykCQcvqMeWeB7QXT3E9eLG08?usp=sharing. The current open source version only aims to reproduce the results reported in the article, so the inference speed is limited.
+
+## Inference
+Make the inference between the protein sequence and compound SMILES.
+`python predict.py`
+
+Conduct drug mutation analysis to predict binding sites. 
+`python mutation_analysis.py`
+
+Conduct substitution analysis.
+`python substitution_analysis.py`
 
 ## Requirements
 python = 3.8.8 
