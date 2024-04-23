@@ -9,10 +9,15 @@
 Set up the conda environment of this project.
 `conda env create -f environment.yaml`
 
+## Files
+The latest files are all in Releases (https://github.com/myzhengSIMM/transformerCPI2.0/releases). The file named "Bert.pkl" used in code is also included.
+
 ## Train
-The data format refers to the file `chembl.zip` in release. 
-The first step for model training is to tokenize and encode the protein sequence and compounds by `python train_featurizer.py`.
-Then, use these feature for model training by `python main_amp.py`.
+The data format refers to the file chembl.zip in Releases, the first step in model training is to tokenize and encode the protein sequence and compounds.
+`python train_featurizer.py`
+
+Use existing data for model training.
+`python main_amp.py`
 
 ## Trained models
 Trained models is now available freely at https://drive.google.com/drive/folders/1X7i1eO-EykCQcvqMeWeB7QXT3E9eLG08?usp=sharing. The current open source version only aims to reproduce the results reported in the article, so the inference speed is limited.
