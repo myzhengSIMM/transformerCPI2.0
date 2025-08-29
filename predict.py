@@ -79,13 +79,24 @@ if __name__ == "__main__":
     else:
         device = torch.device('cpu')
         print('The code uses CPU!!!')
-
-    model = torch.load('Virtual Screening.pt')  # Load trained model
+    
+    
+    pretrain = torch.load('./Bert.pkl')
+    pretrain.to(device)
+    for param in pretrain.parameters():
+        param.requires_grad = False
+    pretrain.eval()
+    encoder = Encoder(pretrain, n_layers=3, device=device)
+    decoder = Decoder(n_layers=3, dropout=0.2, device=device)
+    model = Predictor(encoder, decoder, device, status='infer')
+    model_path = './Virtual_Screening.pt'
+    model.load_state_dict(torch.load(model_path).state_dict())
     model.to(device)
     sequence = "MPHSSLHPSIPCPRGHGAQKAALVLLSACLVTLWGLGEPPEHTLRYLVLHLA" # Example protein sequence
     smiles = "CS(=O)(C1=NN=C(S1)CN2C3CCC2C=C(C4=CC=CC=C4)C3)=O" # Example compound
     compounds, adjacencies, proteins = featurizer(smiles, sequence)
     tester = Tester(model, device)
     test_set = list(zip(compounds, adjacencies, proteins))
-    score = float(tester.test(test_set))
+    score = tester.test(test_set)
     print(score)
+
