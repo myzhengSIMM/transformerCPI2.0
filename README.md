@@ -13,14 +13,20 @@ Set up the conda environment of this project.
 The latest files are all in Releases (https://github.com/myzhengSIMM/transformerCPI2.0/releases). 
 
 Bert.pkl —  embedding support.
+
 DrugRepurpose.pt — TransformerCPI2.0 model  for drug repurposing tasks.
+
+
 Virtual_Screening.pt — TransformerCPI2.0 model  for virtual screening applications.
 
 Model Highlights: These .pt files are pre-trained TransformerCPI2.0 models designed for inference across different drug discovery tasks. They offer improved performance and flexibility for:
 
 🧬 Drug repurposing
+
 🧪 Virtual screening
+
 🔍 General compound–protein interaction prediction
+
 Feel free to integrate them into your workflow for task-specific inference.
 
 ## Train
